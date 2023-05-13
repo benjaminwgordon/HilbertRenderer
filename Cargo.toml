@@ -3,6 +3,7 @@ name = "hilbert-wasm-renderer"
 version = "0.1.0"
 authors = ["benjaminwgordon <benjaminwillardgordon@gmail.com>"]
 edition = "2018"
+description = "library for generating Hilbert Curve Coordinates in 2D and 3D"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
