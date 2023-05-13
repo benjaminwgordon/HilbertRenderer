@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello wasm-pack!</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <noscript
+      >This page contains webassembly and javascript content, please enable
+      javascript in your browser.</noscript
+    >
+    <script src="./bootstrap.js"></script>
+    <div class="app">
+      <div class="controls">
+        <div class="slidecontainer">
+          <label for="geometryIs3D">3D?</label>
+          <input
+            type="checkbox"
+            name="isGeometry3D"
+            id="isGeometry3D"
+            checked
+          />
+        </div>
+        <div class="slidecontainer">
+          <label for="isGeometrySquare">Square?</label>
+          <input
+            type="checkbox"
+            name="isGeometrySquare"
+            id="isGeometrySquare"
+            checked
+          />
+        </div>
+        <div class="slidecontainer">
+          <label for="pInput">Magnitude</label>
+          <input
+            type="range"
+            min="1"
+            max="6"
+            value="3"
+            class="slider"
+            id="pInput"
+          />
+        </div>
+        <div class="slidecontainer">
+          <label for="pipeThicknessInput">Thickness</label>
+
+          <input
+            type="range"
+            min="1"
+            max="1000"
+            value="150"
+            class="slider"
+            id="pipeThicknessInput"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
