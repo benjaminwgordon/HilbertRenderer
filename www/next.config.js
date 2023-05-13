@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "HilbertRenderer",
+  basePath: "/HilbertRenderer",
   webpack(config, { isServer, dev }) {
     config.experiments = { ...config.experiments, asyncWebAssembly: true };
     config.output.webassemblyModuleFilename =
