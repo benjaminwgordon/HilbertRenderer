@@ -71,7 +71,6 @@ jobs:
           version: 'latest'
       - name: Install bundled WASM dependencies
         run: wasm-pack build --target bundler --release
-    version: 'latest'
       - name: Install dependencies
         working-directory: ./www
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
