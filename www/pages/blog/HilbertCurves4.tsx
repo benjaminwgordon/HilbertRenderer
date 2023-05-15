@@ -18,7 +18,8 @@ import {
 
 const HilbertCurves4 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[3];
-  const { id, slug, title, author, publishDate } = HilbertCurves1Metadata;
+  const { id, slug, title, author, publishDate, blurb } =
+    HilbertCurves1Metadata;
 
   return (
     <div className="m-2">
@@ -29,6 +30,7 @@ const HilbertCurves4 = () => {
           title={title}
           author={author}
           publishDate={publishDate}
+          blurb={blurb}
         />
 
         <Section>
@@ -426,6 +428,142 @@ impl Iterator for Brgc {
           </h3>{" "}
           <p className="mb-8">
             We will start with the inversion operation, as it is simpler.
+          </p>
+          <p className="mb-8">
+            For all the bits that are associated with the same dimension (x, y,
+            or z) as the current control bit (the bit we checked in the last
+            step for whether it was 0 or 1), we want to flip that bit.
+          </p>
+          <DarkCodeBlock
+            text={`// n is the number of dimensions (2 or 3)
+// p is the number of bits assigned to each axis
+  let mut i = n * p - n;
+  while i > r && i >= n {
+    hilbert_index_bitvec[i] = !hilbert_index_bitvec[i];
+    i -= n;
+  }`}
+            language={"rust"}
+          />
+        </Section>
+        <Section>
+          <h3 className="font-bold text-2xl underline mb-2">
+            The Exchange Operation
+          </h3>{" "}
+          <p className="mb-8">
+            The exchange operation is a little bit more involved. First, we
+            determine which axis the control bit is associated with (I'll call
+            this the "control bit axis"). Then, for each lower order set (x,y)
+            or (x,y,z), we will swap the x bit in that set with the control axis
+            bit in that set.
+          </p>
+          <p></p>
+          <DarkCodeBlock
+            text={`// swap the lower-order x bits with x,y, or z bits
+  let offset = r % n;
+  let mut s = (p * n - n) + offset;
+  let mut q = (p * n - n);
+  while q > r {
+      hilbert_index_bitvec.swap(q, s);
+      q -= n;
+      s -= n;
+  }`}
+            language={"rust"}
+          />
+        </Section>
+        <Section>
+          <h3 className="font-bold text-2xl underline mb-2">
+            Putting it All Together
+          </h3>{" "}
+          <p className="mb-8">
+            You might have noticed that Skilling Pseudocode uses a nested loop.
+            I flattened the loop and use a bit of modulus math as I find it
+            easier to reason through. <br />
+            <br />
+            Here is my adjusted implementation:
+          </p>
+          <DarkCodeBlock
+            text={`
+  // rust ranges using .. count up, not down, so we use .rev() to get an iterator that counts down through the range
+  for r in (0..(&hilbert_index_bitvec.len() - n)).rev() {
+    if hilbert_index_bitvec[r] {
+      // run the invert operation shown above
+      let mut i = n * p - n;
+      while i > r && i >= n {
+          hilbert_index_bitvec[i] = !hilbert_index_bitvec[i];
+          i -= n;
+      }
+    } else {
+      // run the exchange operation shown above
+        let offset = r % n;
+        let mut s = (p * n - n) + offset;
+        let mut q = (p * n - n);
+        while q > r {
+            hilbert_index_bitvec.swap(q, s);
+            q -= n;
+            s -= n;
+        } 
+    }
+}
+  `}
+            language={"rust"}
+          />
+        </Section>
+        <Section>
+          <h3 className="font-bold text-2xl underline mb-2">Glue Code</h3>{" "}
+          <p className="mb-8">
+            As mentioned earlier, I avoided doing direct manipulation on the
+            bits of the u32 Hilbert Index to avoid complexity. Here is the glue
+            code that converts the u32 Hilbert Indices into Vectors of bits, and
+            vice-versa:
+            <br />
+          </p>
+          <DarkCodeBlock
+            text={`
+fn into_bit_vec(int: u32, length: usize) -> Vec<bool> {
+  let mut bitvec = Vec::<bool>::new();
+  // for each bit of the input u32, push a boolean into the bitvec
+  format!("{int:b}")
+      .chars()
+      .for_each(|bit| bitvec.push(bit == '1'));
+
+  // prepend leading 0's to prevent out of bounds issues later
+  let leading_false_count = length - bitvec.len();
+  let mut leading = Vec::<bool>::new();
+  for _ in 0..leading_false_count {
+      leading.push(false);
+  }
+  leading.extend(bitvec);
+  leading
+}
+
+fn into_u32(bitvec: Vec<bool>) -> u32 {
+  let bitstring: String = bitvec
+      .iter()
+      .map(|bit| if *bit { '1' } else { '0' })
+      .collect();
+  u32::from_str_radix(&bitstring, 2).unwrap()
+}
+  `}
+            language={"rust"}
+          />
+        </Section>
+        <Section>
+          <h3 className="font-bold text-2xl underline mb-2">Wrap Up</h3>{" "}
+          <p className="mb-8">
+            And thats it! Here is a summary of the process for how I generate
+            each vertex of the Hilbert Curve:
+          </p>
+          <ol className="pb-8 ml-8 list-decimal">
+            <li>Take a BRGC from the BRGC iterator</li>
+            <li>Convert it from u32 to a Vector of Booleans</li>
+            <li>Run the Skilling Transform Algorithm</li>
+            <li>Convert it back into a u32</li>
+            <li>Use the calculated Hilbert Index however you like!</li>
+          </ol>
+          <p>
+            I personally use these Hilbert Indices for 3D rendering in your
+            browser. If you are interested in how I do that by compiling this
+            Rust code into WebAssembly, then check out the next post!
           </p>
         </Section>
         <div className="flex flex-row">

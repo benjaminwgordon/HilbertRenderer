@@ -9,7 +9,8 @@ import Link from "../../components/Link";
 import NextLink from "next/link";
 const HilbertCurves2 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[4];
-  const { id, slug, title, author, publishDate } = HilbertCurves1Metadata;
+  const { id, slug, title, author, publishDate, blurb } =
+    HilbertCurves1Metadata;
 
   return (
     <div className="m-2">
@@ -20,6 +21,7 @@ const HilbertCurves2 = () => {
           title={title}
           author={author}
           publishDate={publishDate}
+          blurb={blurb}
         />
         <div className="w-full h-96 mb-8 flex justify-center content-center">
           <HilbertThreeRenderer

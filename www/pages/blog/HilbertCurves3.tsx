@@ -10,7 +10,8 @@ import NextLink from "next/link";
 
 const HilbertCurves3 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[2];
-  const { id, slug, title, author, publishDate } = HilbertCurves1Metadata;
+  const { id, slug, title, author, publishDate, blurb } =
+    HilbertCurves1Metadata;
 
   return (
     <div className="m-2">
@@ -21,6 +22,7 @@ const HilbertCurves3 = () => {
           title={title}
           author={author}
           publishDate={publishDate}
+          blurb={blurb}
         />
 
         <Section>
@@ -47,7 +49,10 @@ const HilbertCurves3 = () => {
               magnitude of the Hilbert Curve. If you are visiting this site on
               mobile, or a computer with older hardware, you will likely see the
               best results with Hilbert Curves of order 4 or less. (The initial
-              curve is of order 3)
+              curve is of order 3) <br />
+              <br />
+              On some computers, the highest magnitude setting can take up to 10
+              seconds to fully load.
             </p>
           </div>
           <p className="mb-8">
