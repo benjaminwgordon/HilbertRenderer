@@ -171,7 +171,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, first order
             </p>
           </div>
@@ -191,7 +191,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, second order
             </p>
           </div>
@@ -211,7 +211,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, third order
             </p>
           </div>
@@ -232,7 +232,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, fourth order
             </p>
           </div>
@@ -247,7 +247,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, fifth order
             </p>
           </div>
@@ -262,7 +262,7 @@ const HilbertCurves1 = () => {
               isCameraOffSetY={false}
               rotationSpeed={0.004}
             />
-            <p className="text-center text-gray-800 italic">
+            <p className="text-center text-gray-400 italic">
               2D Hilbert Curve, sixth order
             </p>
           </div>

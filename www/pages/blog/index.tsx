@@ -31,7 +31,7 @@ const BlogPage = () => {
                   )}
                 </div>{" "}
                 <div className="flex flex-col bg-gray-900 rounded-r-md">
-                  <div className="mt-2 mx-2">
+                  <div className="m-2">
                     <div className="text-lg pl-2 font-bold mb-2">
                       <Link href={`/blog/${slug}`}>{title}</Link>
                     </div>
