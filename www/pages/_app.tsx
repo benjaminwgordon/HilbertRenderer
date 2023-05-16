@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Navbar from "../components/Navbar";
 import "globals.css";
 
@@ -11,13 +12,21 @@ export default function App({ Component, pageProps }) {
   };
 
   return (
-    <div className="bg-gray-50 h-full min-h-screen">
-      <header>
-        <Navbar />
-      </header>
-      <section className="h-full min-h-screen relative ">
-        <Layout Component={Component} pageProps={pageProps} />
-      </section>
-    </div>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+        />
+      </Head>
+      <div className="bg-gray-50 h-full min-h-screen w-screen">
+        <header>
+          <Navbar />
+        </header>
+        <section className="h-full min-h-screen relative ">
+          <Layout Component={Component} pageProps={pageProps} />
+        </section>
+      </div>
+    </>
   );
 }

@@ -44,10 +44,17 @@ const Navbar = () => {
   });
 
   return (
-    <div className="p-1 bg-gray-800 text-gray-200 w-full flex flex-row justify-end">
-      <nav className="max-w-xl w-full flex flex-row justify-end">
-        {navbarLinkJSX}
-      </nav>
+    <div className="bg-gray-800">
+      <div className="px-4 mx-auto lg:max-w-3xl text-gray-200 font-sourcecodepro flex flex-row py-2 items-center">
+        <h1 className="text-xl font-extrabold whitespace-nowrap ">
+          Ben Gordon
+        </h1>
+        <div className="w-full flex flex-row justify-end">
+          <nav className="max-w-xl w-full flex flex-row justify-end">
+            {navbarLinkJSX}
+          </nav>
+        </div>
+      </div>
     </div>
   );
 };

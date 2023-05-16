@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        sourcecodepro: ["Source Code Pro", "monospace"],
       },
     },
   },

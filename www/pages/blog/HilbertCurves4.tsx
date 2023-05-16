@@ -8,13 +8,6 @@ import HilbertThreeRenderer from "../../components/HilbertThreeRenderer";
 import Link from "../../components/Link";
 import NextLink from "next/link";
 import DarkCodeBlock from "../../components/BlogPosts/DarkCodeBlock";
-import {
-  CodeBlock,
-  dracula,
-  irBlack,
-  obsidian,
-  paraisoDark,
-} from "react-code-blocks";
 
 const HilbertCurves4 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[3];
