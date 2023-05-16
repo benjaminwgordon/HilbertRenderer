@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build:wasm": "wasm-pack build --target bundler --release",
-    "build": "next build",
+    "build": "npm run build:wasm && next build",
     "start": "next start",
     "lint": "next lint"
   },
