@@ -73,7 +73,7 @@ const HilbertCurves3 = () => {
           </div>
         </div>
       </main>
-      <div className="m-auto w-3/4 left-0 h-screen flex justify-center pb-8">
+      <div className="m-auto w-full sm:max-w-3/4 left-0 h-3/4 sm:h-screen flex justify-center pb-8">
         <div className=" w-full flex justify-center content-center border-4 border-gray-800 rounded-lg">
           <HilbertThreeRenderer
             initN={3}
