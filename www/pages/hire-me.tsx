@@ -5,10 +5,8 @@ import Link from "../components/Link";
 
 const HireMe = () => {
   return (
-    <div>
+    <div className="mx-2">
       <Section>
-        <h2 className="text-3xl font-bold font-raleway pb-8">About Me</h2>
-        <p className="font-raleway text-lg pb-8"></p>
         <h2 className="text-3xl font-bold font-raleway pb-8">Hire Me!</h2>
         <p className="font-raleway text-lg pb-8">
           I'm currently available for new opportunities in Software Engineering.

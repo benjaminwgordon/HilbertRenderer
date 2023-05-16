@@ -11,7 +11,7 @@ import DarkCodeBlock from "../../components/BlogPosts/DarkCodeBlock";
 
 const HilbertCurves4 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[3];
-  const { id, slug, title, author, publishDate, blurb } =
+  const { id, slug, title, author, publishDate, blurb, image } =
     HilbertCurves1Metadata;
 
   return (
@@ -24,6 +24,7 @@ const HilbertCurves4 = () => {
           author={author}
           publishDate={publishDate}
           blurb={blurb}
+          image={image}
         />
 
         <Section>
@@ -71,7 +72,7 @@ const HilbertCurves4 = () => {
             If you are here to see the algorithm, then welcome! I'll be
             providing code examples in Rust.
           </p>
-          <section className="mb-8 p-4 rounded-md bg-gray-200">
+          <section className="mb-8 p-4 rounded-md bg-gray-800">
             <h4 className="underline mb-4 font-semibold">
               {" "}
               A note on my implementation:

@@ -10,7 +10,7 @@ import NextLink from "next/link";
 
 const HilbertCurves3 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[2];
-  const { id, slug, title, author, publishDate, blurb } =
+  const { id, slug, title, author, publishDate, blurb, image } =
     HilbertCurves1Metadata;
 
   return (
@@ -23,6 +23,7 @@ const HilbertCurves3 = () => {
           author={author}
           publishDate={publishDate}
           blurb={blurb}
+          image={image}
         />
 
         <Section>

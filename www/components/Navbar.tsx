@@ -50,7 +50,7 @@ const Navbar = () => {
           Ben Gordon
         </h1>
         <div className="w-full flex flex-row justify-end">
-          <nav className="max-w-xl w-full flex flex-row justify-end">
+          <nav className="max-w-3xl w-full flex flex-row justify-end">
             {navbarLinkJSX}
           </nav>
         </div>

@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
       </Head>
-      <div className="bg-gray-50 h-full min-h-screen w-screen">
+      <div className="bg-black h-full min-h-screen w-screen">
         <header>
           <Navbar />
         </header>
