@@ -13,7 +13,8 @@ const HireMe = () => {
           I bring experience supporting distributed microservice-architecture
           applications developed in Rust, Golang, and TypeScript and deployed
           through Kubernetes. I'm looking for software development opportunities
-          where I can flex my development skills working on real-world problems.
+          where I can flex my development skills while working on real-world
+          problems.
         </p>
         <p className="font-raleway text-lg pb-8"></p>
         <p className="font-raleway text-lg pb-8">
