@@ -7,6 +7,7 @@ import BlogPostMetaDataDisplay from "../../components/BlogPosts/BlogPostMetaData
 import HilbertThreeRenderer from "../../components/HilbertThreeRenderer";
 import Link from "../../components/Link";
 import NextLink from "next/link";
+
 const HilbertCurves2 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[1];
   const { id, slug, title, author, publishDate, blurb, image } =
