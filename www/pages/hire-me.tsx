@@ -1,6 +1,5 @@
 import React from "react";
 import BlogPageLayout from "../components/BlogPosts/BlogPageLayout";
-import Section from "../components/BlogPosts/Section";
 import Link from "../components/Link";
 
 const HireMe = () => {
