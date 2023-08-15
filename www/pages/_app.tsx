@@ -16,6 +16,9 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Ben Gordon</title>
         <link rel="shortcut icon" href="/public/favicon.ico" />
+        <meta property="og:title" content="Ben Gordon" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://benjaminwgordon.dev/" />
         <meta property="og:image" content="../public/preview.png" />
         <meta
           property="og:description"
