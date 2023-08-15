@@ -10,7 +10,7 @@ const Link = (props: LinkProps) => {
   return (
     <NextLink
       href={target}
-      className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+      className="underline text-blue-500 hover:text-blue-200 visited:text-purple-500"
     >
       {displayTarget}
     </NextLink>
