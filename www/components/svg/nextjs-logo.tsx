@@ -1,8 +1,8 @@
 import * as React from "react";
 const SvgComponent = (props) => (
   <svg
-    width={40}
-    height={40}
+    width={400}
+    height={400}
     aria-label="Next.js logomark"
     className="next-mark_root__wLeec"
     data-theme="light"

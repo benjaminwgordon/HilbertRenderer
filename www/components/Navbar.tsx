@@ -17,7 +17,7 @@ const Navbar = () => {
     },
     {
       route: "/hire-me",
-      name: "Hire Me",
+      name: "About",
     },
   ];
 

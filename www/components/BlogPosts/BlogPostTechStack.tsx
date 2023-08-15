@@ -5,7 +5,7 @@ import BlogPostTechnologyDescription, {
 
 import RustSVG from "../svg/rust-logo";
 import NextjsSVG from "../svg/nextjs-logo";
-
+import ThreeSVG from "../svg/three-logo";
 import WasmSVG from "../svg/wasm-logo";
 
 const BlogPostTechStack = () => {
@@ -31,7 +31,7 @@ const BlogPostTechStack = () => {
     },
     {
       technologyName: "Three.js",
-      technologyIcon: null,
+      technologyIcon: ThreeSVG(null),
       technologyDescription:
         "Three.js is a 3D rendering framework designed for browsers.  It runs on top of WebGL 2.0, and provides a signifigantly easier API than working directly with WebGL.  I've built projects with WebGL 2.0 before, but after experiencing the ease of use of Three.js, I can say with great confidence that I'll be reaching for Three.js first on any future 3D rendering projects.",
     },
