@@ -8,7 +8,7 @@ const DarkCodeBlock = (props: DarkCodeBlockProps) => {
   const { text, language } = props;
   return (
     <div className="mb-8 border border-white rounded-md p-1">
-      <CopyBlock
+      <CodeBlock
         text={text}
         language={language}
         showLineNumbers={false}

@@ -19,7 +19,8 @@ macro_rules! log {
 #[wasm_bindgen]
 pub fn hilbert_coordinates(n: u32, p: u32) -> js_sys::Uint32Array {
     let hilbert_curve = HilbertCurve::new(n, p).unwrap();
-    let out = js_sys::Uint32Array::new_with_length((hilbert_curve.coordinates.len() * 3) as u32);
+    let hilbert_curve_len = (hilbert_curve.coordinates.len() * 3) as u32;
+    let out = js_sys::Uint32Array::new_with_length(hilbert_curve_len);
 
     for i in 0..hilbert_curve.coordinates.len() {
         let (x, y, z) = hilbert_curve.coordinates[i];

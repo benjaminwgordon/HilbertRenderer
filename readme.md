@@ -9,3 +9,32 @@ The website is live at [benjaminwgordon.dev](https://benjaminwgordon.dev)
 
 `www` contains the React/Next.js code.  The HilbertThreeRenderer.tsx file contains the React Component where each Hilbert Curve is rendered.  This component takes in props that allow it to generate a variety of different Hilbert Curves during runtime, none of the visualizations on the blog are pre-rendered.
 
+
+## Build Process
+
+This project relies on an small Rust Crate to build. The crate is bundled into the repository, and has external dependencies on public Rust crates from Crates.io.
+
+Build and serve locally:
+
+```bash
+cd www
+npm run build:wasm
+npm run build
+npx serve@latest out
+```
+
+Run the development server locally:
+
+```bash
+# initialize and build the rust dependencies:
+# this step only needs to be done once unless you intend to modify the rust dependencies
+cd www
+npm run build:wasm
+
+# on all subsequent runs after initializing the rust dependencies,
+# only this command needs to be run
+
+# start the development server
+npm run dev
+```
+
