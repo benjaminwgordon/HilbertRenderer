@@ -15,8 +15,12 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Ben Gordon</title>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <link rel="shortcut icon" href="/public/favicon.ico" />
         <meta property="og:image" content="../public/preview.png" />
+        <meta
+          property="og:description"
+          content="Benjamin Gordon's personal site and development blog"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
