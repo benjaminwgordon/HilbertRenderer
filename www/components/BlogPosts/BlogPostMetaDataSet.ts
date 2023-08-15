@@ -52,7 +52,7 @@ const BlogPostMetaDataSet: BlogPostMetadataType[] = [
     slug: "HilbertCurves5",
     title: "Rendering Hilbert Curves in the Browser using ThreeJS",
     author: "Ben Gordon",
-    publishDate: null,
+    publishDate: new Date(2023, 8, 15),
     blurb:
       "A step-by-step guide on how I developed the 3D renders used in this blog series",
     image: Post5Img,
