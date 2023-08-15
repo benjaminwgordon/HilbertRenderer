@@ -29,8 +29,8 @@ const HireMe = () => {
       </p>
       <p>
         When I am not writing software, you can find me cooking Sichuanese food,
-        hoarding all the wheat in Settlers of Catan, or making premium kitchen
-        knives at my forge.
+        attending board game conventions, or making premium kitchen knives at my
+        forge.
       </p>
       <p>
         I'm currently available for new opportunities in Software Engineering

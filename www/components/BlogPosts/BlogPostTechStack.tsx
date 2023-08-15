@@ -27,21 +27,22 @@ const BlogPostTechStack = () => {
       technologyName: "WebAssembly",
       technologyIcon: WasmSVG(null),
       technologyDescription:
-        "WebAssembly is what allows me to run my Rust code in the browser.  Rust has a fantastic tool called Wasm-Bindgen that allows me to compile my Rust code into a WASM binary, and automatically generate the necessary bindings to import it as an ECMAScript module.  I'll walk through the entire process for creating all the necessary glue code and project structure later in this article.",
+        "WebAssembly is what allows me to run my compiled Rust code in the browser.  Rust has a fantastic tool called Wasm-Bindgen that allows interop between more complex data types (normally only simple numerical types are supported), and automatically generates the necessary bindings to import the compiled .wasm as an ECMAScript module.  I'll walk through the entire process for creating all the necessary glue code and project structure later in this article.",
     },
     {
       technologyName: "Three.js",
       technologyIcon: ThreeSVG(null),
       technologyDescription:
-        "Three.js is a 3D rendering framework designed for browsers.  It runs on top of WebGL 2.0, and provides a signifigantly easier API than working directly with WebGL.  I've built projects with WebGL 2.0 before, but after experiencing the ease of use of Three.js, I can say with great confidence that I'll be reaching for Three.js first on any future 3D rendering projects.",
+        "Three.js is a 3D rendering framework designed for browsers.  It is a library built on WebGL 2.0, and provides a signifigantly easier API than working directly with WebGL.  I've built projects with WebGL 2.0 before, but after experiencing the ease of use of Three.js, I can confidently say that I'll be reaching for Three.js first on any future 3D rendering projects.",
     },
   ];
 
-  const techStackJSX = techStackDescriptionData.map((technology) => {
+  const techStackJSX = techStackDescriptionData.map((technology, index) => {
     const { technologyName, technologyIcon, technologyDescription } =
       technology;
     return (
       <BlogPostTechnologyDescription
+        key={index}
         technologyName={technologyName}
         technologyIcon={technologyIcon}
         technologyDescription={technologyDescription}
