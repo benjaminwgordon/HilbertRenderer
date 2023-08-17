@@ -335,13 +335,19 @@ impl Iterator for Brgc {
                       <span>{")"}</span>
                     </td>
                     <td className="border p-1 px-4">
-                      {`(${parseInt(
-                        brgc.charAt(0) + brgc.charAt(3),
-                        2
-                      )}, ${parseInt(
-                        brgc.charAt(1) + brgc.charAt(4),
-                        2
-                      )}, ${parseInt(brgc.charAt(2) + brgc.charAt(5), 2)})`}
+                      <span>{"("}</span>
+                      <span className="text-red-400">
+                        {parseInt(brgc.charAt(0) + brgc.charAt(3), 2)}
+                      </span>
+                      <span>,</span>
+                      <span className="text-green-400">
+                        {parseInt(brgc.charAt(1) + brgc.charAt(4), 2)}
+                      </span>
+                      <span>,</span>
+                      <span className="text-blue-400">
+                        {parseInt(brgc.charAt(2) + brgc.charAt(5), 2)}
+                      </span>
+                      <span>{")"}</span>
                     </td>
                   </tr>
                 );
