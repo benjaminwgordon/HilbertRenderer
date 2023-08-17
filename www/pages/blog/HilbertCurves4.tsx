@@ -9,6 +9,24 @@ import Link from "../../components/Link";
 import NextLink from "next/link";
 import DarkCodeBlock from "../../components/BlogPosts/DarkCodeBlock";
 
+const colorBinaryString = (binStr: string): JSX.Element => {
+  return (
+    <>
+      {binStr.split("").map((char, index) => {
+        const i = index % 3;
+        switch (i) {
+          case 1:
+            return <span className="text-green-400">{char}</span>;
+          case 2:
+            return <span className="text-blue-400">{char}</span>;
+          default:
+            return <span className="text-red-400">{char}</span>;
+        }
+      })}
+    </>
+  );
+};
+
 const HilbertCurves4 = () => {
   const HilbertCurves1Metadata: BlogPostMetaDataType = BlogPostMetaDataSet[3];
   const { id, slug, title, author, publishDate, blurb, image } =
@@ -191,9 +209,11 @@ impl Iterator for Brgc {
           <table className="text-xl mb-8">
             <tbody>
               <tr className="border">
-                <td className="border p-1 px-2">x</td>
-                <td className="border p-1 px-2">y</td>
-                <td className="border p-1 px-2">z</td>
+                <td className="border p-1 px-2 text-red-400">x</td>
+                <td className="border p-1 px-2 text-green-400">y</td>
+                <td className="border p-1 px-2 text-blue-400 text-blue-400">
+                  z
+                </td>
               </tr>
               <tr className="border">
                 <td className="border p-1 px-2">1</td>
@@ -203,18 +223,18 @@ impl Iterator for Brgc {
             </tbody>
           </table>
           <p className="mb-8 ">
-            When the bit string is longer, we can assign digits by rotation, for
-            example 011010:{" "}
+            When the bit string is longer, we can assign digits by cycling
+            through x, y, and z repeatedly, for example 011010:{" "}
           </p>
           <table className="text-xl mb-8 text-center">
             <tbody>
               <tr className="border">
-                <td className="border p-1 px-4">x</td>
-                <td className="border p-1 px-4">y</td>
-                <td className="border p-1 px-4">z</td>
-                <td className="border p-1 px-4">x</td>
-                <td className="border p-1 px-4">y</td>
-                <td className="border p-1 px-4">z</td>
+                <td className="border p-1 px-4 text-red-400">x</td>
+                <td className="border p-1 px-4 text-green-400">y</td>
+                <td className="border p-1 px-4 text-blue-400">z</td>
+                <td className="border p-1 px-4 text-red-400">x</td>
+                <td className="border p-1 px-4 text-green-400">y</td>
+                <td className="border p-1 px-4 text-blue-400">z</td>
               </tr>
               <tr className="border">
                 <td className="border p-1 px-4">0</td>
@@ -227,14 +247,15 @@ impl Iterator for Brgc {
             </tbody>
           </table>
           <p className="mb-8 ">
-            Then, we can combine the x, y, and z bits respectively:
+            Once the corresponding x digits, y digits, and z digits are
+            reordered:
           </p>
           <table className="text-xl mb-8 text-center">
             <tbody>
               <tr className="border">
-                <td className="border p-1 px-4">x</td>
-                <td className="border p-1 px-4">y</td>
-                <td className="border p-1 px-4">z</td>
+                <td className="border p-1 px-4 text-red-400">x</td>
+                <td className="border p-1 px-4 text-green-400">y</td>
+                <td className="border p-1 px-4 text-blue-400">z</td>
               </tr>
               <tr className="border">
                 <td className="border p-1 px-4">00</td>
@@ -251,9 +272,9 @@ impl Iterator for Brgc {
           <table className="text-xl mb-8 text-center">
             <tbody>
               <tr className="border">
-                <td className="border p-1 px-4">x</td>
-                <td className="border p-1 px-4">y</td>
-                <td className="border p-1 px-4">z</td>
+                <td className="border p-1 px-4 text-red-400">x</td>
+                <td className="border p-1 px-4 text-green-400">y</td>
+                <td className="border p-1 px-4 text-blue-400">z</td>
               </tr>
               <tr className="border">
                 <td className="border p-1 px-4">0</td>
@@ -264,14 +285,22 @@ impl Iterator for Brgc {
           </table>
           <p className="mb-8 ">
             If we perform this operation for the first 8 BRGC numbers, we can
-            see get 8 vertex coordinates in 3D:
+            see 8 three-dimensional vertex coordinates in decimal:
           </p>
           <table className="text-xl mb-8 text-center">
             <thead>
               <tr>
                 <th className="border p-1 px-4">BRGC</th>
-                <th className="border p-1 px-4">Binary (x,y,z)</th>
-                <th className="border p-1 px-4">Decimal (x,y,z)</th>
+                <th className="border p-1 px-4">
+                  Binary (<span className="text-red-400">x</span>,
+                  <span className="text-green-400">y</span>,
+                  <span className="text-blue-400">z</span>)
+                </th>
+                <th className="border p-1 px-4">
+                  Decimal (<span className="text-red-400">x</span>,
+                  <span className="text-green-400">y</span>,
+                  <span className="text-blue-400">z</span>)
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -287,11 +316,23 @@ impl Iterator for Brgc {
               ].map((brgc) => {
                 return (
                   <tr key={brgc}>
-                    <td className="border p-1 px-4">{brgc}</td>
                     <td className="border p-1 px-4">
-                      {`(${brgc.charAt(0)}${brgc.charAt(3)}, ${brgc.charAt(
-                        1
-                      )}${brgc.charAt(4)}, ${brgc.charAt(2)}${brgc.charAt(5)})`}
+                      {colorBinaryString(brgc)}
+                    </td>
+                    <td className="border p-1 px-4">
+                      <span>{"("}</span>
+                      <span className="text-red-400">
+                        {brgc.charAt(0) + brgc.charAt(3)}
+                      </span>
+                      <span>,</span>
+                      <span className="text-green-400">
+                        {brgc.charAt(1) + brgc.charAt(4)}
+                      </span>
+                      <span>,</span>
+                      <span className="text-blue-400">
+                        {brgc.charAt(2) + brgc.charAt(5)}
+                      </span>
+                      <span>{")"}</span>
                     </td>
                     <td className="border p-1 px-4">
                       {`(${parseInt(
@@ -552,10 +593,10 @@ fn into_u32(bitvec: Vec<bool>) -> u32 {
             <li>Convert it from u32 to a Vector of Booleans</li>
             <li>Run the Skilling Transform Algorithm</li>
             <li>Convert it back into a u32</li>
-            <li>Use the calculated Hilbert Index however you like!</li>
+            <li>Use the calculated Hilbert coordinates however you like!</li>
           </ol>
           <p>
-            I personally use these Hilbert Indices for 3D rendering in your
+            I personally use these Hilbert Coordinates for 3D rendering in your
             browser. If you are interested in how I do that by compiling this
             Rust code into WebAssembly, then check out the next post!
           </p>
