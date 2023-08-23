@@ -73,8 +73,13 @@ const HilbertCurves3 = () => {
           </div>
         </div>
       </main>
+      <div className="flex flex-row w-full justify-center">
+        <button className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 text-xl rounded-md self-end">
+          <NextLink href={"/blog/HilbertCurves4"}>Next Post</NextLink>
+        </button>
+      </div>
       <div className="m-auto w-full sm:max-w-3/4 left-0 h-3/4 sm:h-screen flex justify-center pb-8">
-        <div className=" w-full flex justify-center content-center border-4 border-gray-800 rounded-lg">
+        <div className=" w-full flex justify-center content-center border-4 border-gray-800 rounded-lg mx-12 mt-12">
           <HilbertThreeRenderer
             initN={3}
             initP={3}
@@ -86,11 +91,6 @@ const HilbertCurves3 = () => {
             isCameraOffSetY={true}
           />
         </div>
-      </div>
-      <div className="flex flex-row">
-        <button className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 text-xl rounded-md self-end">
-          <NextLink href={"/blog/HilbertCurves4"}>Next Post</NextLink>
-        </button>
       </div>
     </div>
   );
