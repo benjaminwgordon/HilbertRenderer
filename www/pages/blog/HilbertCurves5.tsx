@@ -53,7 +53,7 @@ const HilbertCurves2 = () => {
             />
           </SectionParagraph>
           <SectionParagraph>
-            If you are already familiar with Hilbert Curves but havent seen the
+            If you are already familiar with Hilbert Curves but haven't seen the
             non-recursive algorithm for generating their vertex coordinates, you
             may be interested in the fourth post in this series:{" "}
             <Link
@@ -79,23 +79,22 @@ const HilbertCurves2 = () => {
             Now that we've discussed all the technologies involved, let's walk
             through how they all fit together. I've built a React component for
             the Three.js renders, which uses a React ref to mount a WebGL 2.0
-            canvas into the DOM. The component takes as props various paramaters
-            that control the shape of the generated Hilbert curve, such as
-            number of dimensions, scale of each dimension, rendering mode,
+            canvas into the DOM. The component takes as props various parameters
+            that control the shape of the generated Hilbert curve, such as the
+            number of dimensions, the scale of each dimension, rendering mode,
             etc...
           </SectionParagraph>
           <SectionParagraph>
             On first render, or on any of these input parameters being changed
             by the user, a useEffect fires. This useEffect triggers clearing the
             canvas and preparing it for a new draw using ThreeJS calls. Now that
-            the canvas is prepared for a new content draw, a call is made into
-            the imported WASM module. The call into WASM passes two arguments,
-            "n" and "p", which specify dimensions and scale on the Hilbert
-            Curve. This is the Rust code that generates the called function. It
-            takes two arguments, n and p, and calculates the coordinates of a
-            Hilbert Curve by calling into the hilbert_curve_generator crate,
-            which is a public library crate on Crates.io that I developed and
-            published.
+            the canvas is prepared for a new content draw, a call is made to the
+            imported WASM module. The call into WASM passes two arguments, "n"
+            and "p", which specify dimensions and scale on the Hilbert Curve.
+            This is the Rust code that generates the called function. It takes
+            two arguments, n and p, and calculates the coordinates of a Hilbert
+            Curve by calling into the hilbert_curve_generator crate, which is a
+            public library crate on Crates.io that I developed and published.
           </SectionParagraph>
           <DarkCodeBlock
             text={`#[wasm_bindgen]
@@ -117,11 +116,10 @@ pub fn hilbert_coordinates(n: u32, p: u32) -> js_sys::Uint32Array {
           />
           <SectionParagraph>
             Effectively, this is just glue code that takes in the arguments
-            passed from the JS, and passes them into the function imported from
-            the HilbertCurve crate, converts the result into a flattened array,
-            and returns it as a js_sys Uint32Array back to the calling JS
-            function. The calling JS function is responsible for unflattening
-            this array.
+            passed from the JS, passes them into the function imported from the
+            HilbertCurve crate, converts the result into a flattened array, and
+            returns it as a js_sys Uint32Array back to the calling JS function.
+            The calling JS function is responsible for unflattening this array.
           </SectionParagraph>
           <SectionParagraph>
             Due to the impressive Wasm-Bindgen and js-sys tooling, I can ignore
@@ -136,9 +134,9 @@ const hilbertVectors = unflattenHilbertVectors(hilbert_flat_buffer);
             language={"TypeScript"}
           />
           <SectionParagraph>
-            From this point, the remaining code is entirely TypeScript focused
+            From this point, the remaining code is entirely TypeScript-focused
             on Three.js. First, we set up the scene for a new draw, including
-            creating a new Camera that is well positioned for the new geometry:
+            creating a new Camera that is positioned for the new geometry:
           </SectionParagraph>
           <DarkCodeBlock
             text={`const hilbert_flat_buffer = wasm.hilbert_coordinates(n, p);

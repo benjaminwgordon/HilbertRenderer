@@ -21,7 +21,7 @@ const BlogPostTechStack = () => {
       technologyName: "Rust",
       technologyIcon: RustSVG({ filter: "invert(100%)" }),
       technologyDescription:
-        "I developed the Binary Reflected Gray Code generator, the Skilling Transform, and the Hilbert Curve coordinate generator in Rust.  I'm a big fan of Rust; its blazingly fast, and the strong typing prevented quite a few errors during development.  The speed of Rust was particularly helpful for me while I was incrementally developing and proving the various parts of the Hilbert Curve generator, as I was able to generate very large curves and write them out to OBJ files very quickly.  This let me visually prove whether or not my implementations were correct.  Had I done the Hilbert Curve generation in JavaScript, generating the large curves I used during development would have been much slower.  I'll post a more detailed performance comparison later on in this post.",
+        "I developed the Binary Reflected Gray Code generator, the Skilling Transform, and the Hilbert Curve coordinate generator in Rust.  I'm a big fan of Rust; it's blazingly fast, and the strong typing prevented quite a few errors during development.  The speed of Rust was particularly helpful for me while I was incrementally developing and proving the various parts of the Hilbert Curve generator, as I was able to generate very large curves and write them out to OBJ files very quickly.  This let me visually prove whether or not my implementations were correct.  Had I done the Hilbert Curve generation in JavaScript, generating the large curves I used during development would have been much slower.  I'll post a more detailed performance comparison later on in this post.",
     },
     {
       technologyName: "WebAssembly",
@@ -33,7 +33,7 @@ const BlogPostTechStack = () => {
       technologyName: "Three.js",
       technologyIcon: ThreeSVG(null),
       technologyDescription:
-        "Three.js is a 3D rendering framework designed for browsers.  It is a library built on WebGL 2.0, and provides a signifigantly easier API than working directly with WebGL.  I've built projects with WebGL 2.0 before, but after experiencing the ease of use of Three.js, I can confidently say that I'll be reaching for Three.js first on any future 3D rendering projects.",
+        "Three.js is a 3D rendering framework designed for browsers.  It is a library built on WebGL 2.0, and provides a significantly easier API than working directly with WebGL.  I've built projects with WebGL 2.0 before, but after experiencing the ease of use of Three.js, I can confidently say that I'll be reaching for Three.js first on any future 3D rendering projects.",
     },
   ];
 
